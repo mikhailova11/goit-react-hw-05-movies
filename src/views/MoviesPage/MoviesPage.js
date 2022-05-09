@@ -44,7 +44,7 @@ const MoviesPage = () => {
                 onChange={onHandleChange}
             />
             </form>
-            <Outlet/>
+            
     
     {film && 
     (<><PageHeading>List of found films</PageHeading>
