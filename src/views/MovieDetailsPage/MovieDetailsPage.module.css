@@ -13,19 +13,21 @@
   .title {
     margin-bottom: 20px;
     font-size: 30px;
+    color: rgba(0, 0, 0, 0.67);
   }
-  
+  .overviewDescription,
   .userScore {
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 20px;
+    color: rgba(0, 0, 0, 0.797);
   }
   .overview,
-  .overviewDescription,
   .genres,
   .additInfo,
   .buttonBox {
     margin-bottom: 20px;
+    color: rgba(0, 0, 0, 0.67);
   }
   .genreItem:not(:last-child)::after {
     content: ', ';
@@ -36,31 +38,34 @@
   }
   .linkList {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
   }
   .link {
     text-decoration: none;
     font-size: 20px;
     font-weight: 500;
-    color: rgb(12, 12, 12);
+    color: rgba(0, 0, 0, 0.67);
     padding: 5px;
     border-radius: 10px;
     transition: color 300ms ease, background-color 300ms ease;
+    padding: 10px 15px;
+
+
+
   }
   .linkList li:last-child {
     margin-left: 10px;
   }
   .link:hover,
-  .link:focus,
-  .goBackButton:hover,
-  .goBackButton:focus {
-    background-color: rgb(156, 99, 209);
-    color: rgb(248, 248, 248);
+  .link:focus {
+    color: rgb(180, 23, 23);
+    background:  linear-gradient(#f1e9e9c5, #edb9b9);
+    border: 1px solid #edb9b9 ;
   }
-  
+
   .goBackButton:hover .searchIcon,
   .goBackButton:focus .searchIcon {
-    fill: rgb(248, 248, 248);
+    fill:  rgb(180, 23, 23);
   }
   
   .goBackButton {
@@ -68,9 +73,10 @@
     align-items: center;
     justify-content: space-between;
     background-color: transparent;
-    border-radius: 10px;
+    border-radius: 50%;
     padding: 10px;
-    border: 0;
+    border: 1px solid #edb9b9 ;
+    background:  linear-gradient(#f1e9e9c5, #edb9b9);
     cursor: pointer;
     font-weight: 500;
     transition: background-color 300ms ease, color 300ms ease, fill 300ms ease;

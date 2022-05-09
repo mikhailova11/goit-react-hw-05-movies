@@ -3,6 +3,7 @@ import PageHeading from "components/PageHeading/PageHeading";
 import { useEffect, useState } from "react";
 import { fetchSearchMovies } from "services/filmApi";
 import MoviesList from "components/MovieList";
+import { Outlet } from 'react-router-dom';
 
 
 const MoviesPage = () => {
@@ -43,6 +44,7 @@ const MoviesPage = () => {
                 onChange={onHandleChange}
             />
             </form>
+            <Outlet/>
     
     {film && 
     (<><PageHeading>List of found films</PageHeading>

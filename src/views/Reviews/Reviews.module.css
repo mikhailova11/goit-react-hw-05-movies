@@ -4,9 +4,10 @@
   
   .reviewBox {
     padding: 25px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 1), -23px 0 20px -23px rgba(0, 0, 0, 0.8),
-      23px 0 20px -23px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-    border-radius: 20px;
+    color: rgb(126, 100, 100);;
+    background:  linear-gradient(#f1e9e9c5, #edb9b9);
+    border: 1px solid #edb9b9 ;
+
   }
   .reviewBox:not(:last-child),
   .reviewAuthor {

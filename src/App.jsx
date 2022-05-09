@@ -15,21 +15,18 @@ export const App = () => {
   return (
     <Container>
     <Suspense fallback={<div>Load...</div>}>
-    <Navigation/>
-    <Routes>
-       
-         <Route path="/" element={<HomePageLazy/>}/>
-         <Route path="movies" element={<MoviesPageLazy/>}>
-           <Route path=":id" element={<MovieDetailsPageLazy/>}>
-            <Route path="cast" element={<CastLazy/>} />
-            <Route path="reviews" element={<ReviewsLazy/>} />
+    <Navigation />
+
+        <Routes>
+          <Route exact path="/" element={<HomePageLazy />} />
+          <Route path="/movies" element={<MoviesPageLazy />} />
+          <Route path="/movies/:id" element={<MovieDetailsPageLazy />}>
+            <Route path="/movies/:id/cast" element={<CastLazy />} />
+            <Route path="/movies/:id/reviews" element={<ReviewsLazy />} />
           </Route>
-         </Route>
-         
-         <Route path="*" element={<HomePageLazy/>}/>
-  
-    </Routes>
-    </Suspense>
+        </Routes>
+      </Suspense>
+
     </Container>
   );
 };

@@ -24,7 +24,6 @@
 .link:hover{
     color: rgb(180, 23, 23);
     background:  linear-gradient(#f1e9e9c5, #edb9b9a4);
-    border: 3px solid rgba(126, 100, 100, 0.562);
     border: 1px solid #edb9b9 ;
 
 }

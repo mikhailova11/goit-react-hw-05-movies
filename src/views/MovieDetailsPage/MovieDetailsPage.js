@@ -38,7 +38,6 @@ const MovieDetailsPage = () => {
             <IconContext.Provider value={{ className: `${s.searchIcon}` }}>
               <GoArrowLeft />
             </IconContext.Provider>
-            Go Back
           </button>
         </div>
         <div className={s.movieBox}>
