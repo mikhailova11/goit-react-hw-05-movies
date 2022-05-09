@@ -2,12 +2,13 @@ import Navigation from "./components/Navigation";
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Container from "./components/Container";
+import Cast from './views/Cast';
+import Reviews from'./views/Reviews';
 
 const HomePageLazy = lazy(()=> import('./views/HomePage'));
 const MoviesPageLazy = lazy(()=> import('./views/MoviesPage'));
 const MovieDetailsPageLazy = lazy(()=> import('./views/MovieDetailsPage'));
-const CastLazy = lazy(()=> import('./views/Cast'));
-const ReviewsLazy = lazy(()=> import('./views/Reviews'));
+
 
 
 
@@ -21,8 +22,8 @@ export const App = () => {
           <Route exact path="/" element={<HomePageLazy />} />
           <Route path="/movies" element={<MoviesPageLazy />} />
           <Route path="/movies/:id" element={<MovieDetailsPageLazy />}>
-            <Route path="/movies/:id/cast" element={<CastLazy />} />
-            <Route path="/movies/:id/reviews" element={<ReviewsLazy />} />
+            <Route path="/movies/:id/cast" element={<Cast />} />
+            <Route path="/movies/:id/reviews" element={<Reviews />} />
           </Route>
         </Routes>
       </Suspense>
