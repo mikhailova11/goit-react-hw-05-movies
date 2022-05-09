@@ -22,8 +22,8 @@ export const App = () => {
           <Route exact path="/" element={<HomePageLazy />} />
           <Route path="/movies" element={<MoviesPageLazy />} />
           <Route path="/movies/:id" element={<MovieDetailsPageLazy />}>
-            <Route path="/movies/:id/cast" element={<Cast />} />
-            <Route path="/movies/:id/reviews" element={<Reviews />} />
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
           </Route>
         </Routes>
       </Suspense>
