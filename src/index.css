@@ -1,4 +1,4 @@
-@import-normalize; /* bring in normalize.css styles */
+/* @import-normalize; bring in normalize.css styles */
 
 body {
   margin: 0;
@@ -7,9 +7,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f1e9e9;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+ul,
+li,
+p{
+  margin: o;
+  padding: 0;
+}
+
+nav a[aria-current] {
+  color: rgb(180, 23, 23);
+  background:  linear-gradient(#f1e9e9c5, #edb9b9);
+  border: 3px solid rgba(126, 100, 100, 0.562);
+  border: 1px solid #edb9b9 ;
 }
