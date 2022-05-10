@@ -16,7 +16,8 @@ async function fetchWithErrorHandling(url) {
 }
 
 export function fetchPopularFilms() {
-    return fetchWithErrorHandling(`${BASE_URL}trending/all/day?api_key=${KEY}`)
+
+    return fetchWithErrorHandling(`${BASE_URL}trending/movie/day?page=1&api_key=${KEY}`)
 }
 
 export function fetchSearchMovies(query) {

@@ -6,7 +6,7 @@ const MoviesList = ({response}) => {
   const location = useNavigate();
   
   return (
-    <Container>
+    <Container className={s.movieDetails}>
     <ul className={s.movieList}>
 
       {response.results.map(movie =>(
@@ -16,7 +16,7 @@ const MoviesList = ({response}) => {
               src={
                 movie.poster_path
                   ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
-                  : `https://pixabay.com/get/g68da3d44c0cdd0d3f37381394d7c26cb4d605a22228ba5a0b9443c2001eebc8ce311a73747570bf4d5f798d922cd924a_1280.png`
+                  : `https://cdn.pixabay.com/photo/2016/03/31/18/36/cinema-1294496_1280.png`
               }
               alt={movie.title}
               width="200px"

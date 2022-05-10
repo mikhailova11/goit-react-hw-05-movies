@@ -9,11 +9,6 @@ import MoviesList from "components/MovieList";
 const MoviesPage = () => {
     const [film, setFilm] = useState(null);
     const [query, setQuery] = useState('');
-    
-
-    const onHandleChange = (e) => {
-        setQuery(e.currentTarget.value)
-    }
 
     const onQuerySubmit = e => {
         e.preventDefault();
@@ -28,7 +23,7 @@ const MoviesPage = () => {
         if( !query){
             return;
         }
-        fetchSearchMovies(query).then().then(setFilm)
+        fetchSearchMovies(query).then(setFilm)
     }, [query])
 
     
@@ -41,7 +36,7 @@ const MoviesPage = () => {
                 type="text"
                 placeholder="Search..."
                 value={query}
-                onChange={onHandleChange}
+                onChange={(e) => setQuery(e.currentTarget.value)}
             />
             </form>
             
