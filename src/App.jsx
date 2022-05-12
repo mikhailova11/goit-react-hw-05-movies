@@ -19,7 +19,7 @@ export const App = () => {
     <Navigation />
 
         <Routes>
-          <Route exact path="/" element={<HomePageLazy />} />
+          <Route path="/" element={<HomePageLazy />} />
           <Route path="/movies" element={<MoviesPageLazy />} />
           <Route path="/movies/:id" element={<MovieDetailsPageLazy />}>
             <Route path="cast" element={<Cast />} />

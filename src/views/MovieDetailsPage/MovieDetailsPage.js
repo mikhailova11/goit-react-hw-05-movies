@@ -9,7 +9,7 @@ import {
 import { IconContext } from 'react-icons';
 import { useState, useEffect, useRef } from 'react';
 import { fetchGetMovieDetails } from '../../services/filmApi';
-import { GoArrowLeft } from 'react-icons/go';
+import { GoReply } from 'react-icons/go';
 import Container from 'components/Container';
 
 const MovieDetailsPage = () => {
@@ -20,6 +20,9 @@ const MovieDetailsPage = () => {
   const locationHistory = useRef(location);
 
   useEffect(() => {
+    if(!id){
+      return;
+    }
     fetchGetMovieDetails(id).then(setMovieDetails);
   }, [id]);
 
@@ -37,7 +40,7 @@ const MovieDetailsPage = () => {
         className={s.goBackButton}
       >
         <IconContext.Provider value={{ className: `${s.searchIcon}` }}>
-          <GoArrowLeft />
+          <GoReply />
         </IconContext.Provider>
       </button>
     </div>
