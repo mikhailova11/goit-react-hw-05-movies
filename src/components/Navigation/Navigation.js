@@ -1,4 +1,4 @@
-import { NavLink, Outlet  } from "react-router-dom";
+import { NavLink  } from "react-router-dom";
 import s from './Navigation.module.css';
 
 const Navigation = () => {
@@ -15,7 +15,6 @@ const Navigation = () => {
                 className={s.link}    
             >
                 Search movies
-                <Outlet/>
             </NavLink>
         </nav>
         

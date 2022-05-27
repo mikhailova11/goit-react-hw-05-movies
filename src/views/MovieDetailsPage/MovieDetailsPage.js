@@ -20,9 +20,6 @@ const MovieDetailsPage = () => {
   const locationHistory = useRef(location);
 
   useEffect(() => {
-    if(!id){
-      return;
-    }
     fetchGetMovieDetails(id).then(setMovieDetails);
   }, [id]);
 

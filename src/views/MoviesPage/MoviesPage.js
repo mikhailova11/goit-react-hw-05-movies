@@ -3,10 +3,28 @@ import PageHeading from "components/PageHeading/PageHeading";
 import { useEffect, useState } from "react";
 import { fetchSearchMovies } from "services/filmApi";
 import MoviesList from "components/MovieList";
+import { useSearchParams } from 'react-router-dom';
 
 const MoviesPage = () => {
     const [film, setFilm] = useState(null);
     const [query, setQuery] = useState('');
+    const [searchParams, setSearchParams] = useSearchParams({});
+    const queryValue = searchParams.get('query');
+
+
+    useEffect(() => {
+        if (!queryValue) {
+          return;
+        }
+        fetchSearchMovies(queryValue).then().then(setFilm);
+      }, [queryValue]);
+
+    useEffect(()=>{
+        if( !query){
+            return;
+        }
+        fetchSearchMovies(query).then().then(setFilm)
+    }, [query])
 
     const onQuerySubmit = e => {
         e.preventDefault();
@@ -14,17 +32,9 @@ const MoviesPage = () => {
           alert('Please, enter movie name');
           return;
         }
-        setQuery('')
+        setSearchParams({ query });
       };
 
-    useEffect(()=>{
-        if( !query){
-            return;
-        }
-        fetchSearchMovies(query).then(setFilm)
-    }, [query])
-
-    
     return(
    
     <>
