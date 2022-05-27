@@ -11,7 +11,7 @@ const MoviesList = ({response}) => {
 
       {response.results.map(movie =>(
         <li key={movie.id} className={s.movieCard}>
-          <Link to={`/movies/${movie.id}`} state={location}>
+          <Link to={`/movies/${movie.id}`} state={{location}}>
             <img
               src={
                 movie.poster_path
