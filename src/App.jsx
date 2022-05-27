@@ -20,8 +20,8 @@ export const App = () => {
 
         <Routes>
           <Route path="/" element={<HomePageLazy />} />
-          <Route path="/movies" element={<MoviesPageLazy />} />
-          <Route path="/movies/:id" element={<MovieDetailsPageLazy />}>
+          <Route path="movies" element={<MoviesPageLazy />} />
+          <Route path=":id" element={<MovieDetailsPageLazy />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
