@@ -26,8 +26,8 @@ export function fetchSearchMovies(query) {
 
 export function fetchGetMovieDetails(movieId) {
     const id = movieId;
-    return fetchWithErrorHandling(`${BASE_URL}movie/${id}?api_key=${KEY}`) 
-}
+    return fetchWithErrorHandling(`${BASE_URL}movie/${id}?api_key=${KEY}`);
+  }
 
 export function fetchGetMovieCredits(movieId) {
     return fetchWithErrorHandling(`${BASE_URL}movie/${movieId}/credits?api_key=${KEY}`) 
