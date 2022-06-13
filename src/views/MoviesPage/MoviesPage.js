@@ -16,14 +16,14 @@ const MoviesPage = () => {
         if (!queryValue) {
           return;
         }
-        fetchSearchMovies(queryValue).then().then(setFilm);
+        fetchSearchMovies(queryValue).then(setFilm);
       }, [queryValue]);
 
     useEffect(()=>{
         if( !query){
             return;
         }
-        fetchSearchMovies(query).then().then(setFilm)
+        fetchSearchMovies(query).then(setFilm)
     }, [query])
 
     const onQuerySubmit = e => {

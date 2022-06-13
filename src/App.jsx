@@ -15,15 +15,16 @@ const MovieDetailsPageLazy = lazy(()=> import('./views/MovieDetailsPage'));
 export const App = () => {
   return (
     <Container>
-      <Navigation path="/"/>
+      <Navigation/>
       <Suspense fallback={<h1>Loading...</h1>}>
         <Routes>
-          <Route index element={<HomePageLazy />} />
-          <Route index path="movies" element={<MoviesPageLazy />} />
+          <Route path="/" element={<HomePageLazy />} />
+          <Route path="movies" element={<MoviesPageLazy />} />
           <Route path="movies/:id" element={<MovieDetailsPageLazy />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          <Route path="*" element={<HomePageLazy />} />
         </Routes>
       </Suspense>
 

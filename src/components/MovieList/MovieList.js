@@ -4,7 +4,7 @@ import s from './MoviesList.module.css';
 
 const MoviesList = ({response}) => {
   const location = useNavigate();
-  
+ 
   return (
     <Container className={s.movieDetails}>
     <ul className={s.movieList}>

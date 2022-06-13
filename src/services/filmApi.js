@@ -11,6 +11,7 @@ async function fetchWithErrorHandling(url) {
         return movies;
       } catch (error) {
         alert(`${error}`);
+        console.log(error)
         return Promise.reject(error);
       }
 }

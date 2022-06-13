@@ -32,7 +32,7 @@ const MovieDetailsPage = () => {
       <Container className={s.movieDetails}>        
       <div className={s.buttonBox}>
       <button
-        type="butoon"
+        type="buton"
         onClick={onClickGoBackButon}
         className={s.goBackButton}
       >
