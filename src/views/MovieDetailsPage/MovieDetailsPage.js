@@ -18,13 +18,22 @@ const MovieDetailsPage = () => {
   const location = useLocation();
   const [movieDetails, setMovieDetails] = useState(null);
   const locationHistory = useRef(location);
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetchGetMovieDetails(id).then(setMovieDetails);
-  }, [id]);
+    async function fetchDetails(id) {
+      try {
+        await fetchGetMovieDetails(id).then(setMovieDetails);
+      } catch (error) {
+        setError(error)
+        console.dir(error)
+      }
+    }
+    fetchDetails(id)
+  }, [id, error]);
 
   const onClickGoBackButon = () => {
-    navigate(locationHistory?.current?.state?.from || '/');
+    // navigate(locationHistory?.current?.state?.from || '/');
   };
 
   return (
@@ -32,7 +41,7 @@ const MovieDetailsPage = () => {
       <Container className={s.movieDetails}>        
       <div className={s.buttonBox}>
       <button
-        type="buton"
+        type="button"
         onClick={onClickGoBackButon}
         className={s.goBackButton}
       >

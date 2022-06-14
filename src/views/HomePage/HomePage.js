@@ -5,17 +5,27 @@ import { useEffect, useState } from 'react';
 import {fetchPopularFilms} from 'services/filmApi'
 import Container from 'components/Container';
 
+
 const HomePages = () => {
     const [film, setFilm] = useState(null)
 
     useEffect(()=>{
-        fetchPopularFilms().then(setFilm) 
+
+        async function fetchFilms() {
+        try {
+           await fetchPopularFilms().then(setFilm)
+        } catch (error) {
+            console.dir(error)
+        } 
+    }
+    fetchFilms()
     },[])
 
     return(
     <Container>
         <PageHeading>Popular Films</PageHeading>
         {film && <MoviesList response={film} />}
+        
     </Container>
     )
 }

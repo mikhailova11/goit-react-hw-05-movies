@@ -56,6 +56,8 @@ const MoviesPage = () => {
 
     {film && film.total_results === 0 && 
     (<PageHeading>There are no movies matching your search</PageHeading>)}
+   
+    
     
 </>
 );

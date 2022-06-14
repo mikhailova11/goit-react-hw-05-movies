@@ -5,9 +5,9 @@ import Container from "./components/Container";
 import Cast from './views/Cast';
 import Reviews from'./views/Reviews';
 
-const HomePageLazy = lazy(()=> import('./views/HomePage'));
-const MoviesPageLazy = lazy(()=> import('./views/MoviesPage'));
-const MovieDetailsPageLazy = lazy(()=> import('./views/MovieDetailsPage'));
+const HomePageLazy = lazy(()=> import('./views/HomePage' /*webpackChunkName: "home-view" */));
+const MoviesPageLazy = lazy(()=> import('./views/MoviesPage' /*webpackChunkName: "movie-view" */));
+const MovieDetailsPageLazy = lazy(()=> import('./views/MovieDetailsPage' /*webpackChunkName: "movie-details-view" */));
 
 
 
@@ -24,6 +24,7 @@ export const App = () => {
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          
           <Route path="*" element={<HomePageLazy />} />
         </Routes>
       </Suspense>
