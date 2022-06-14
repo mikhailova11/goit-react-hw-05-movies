@@ -33,7 +33,7 @@ const MovieDetailsPage = () => {
   }, [id, error]);
 
   const onClickGoBackButon = () => {
-    // navigate(locationHistory?.current?.state?.from || '/');
+    navigate(locationHistory?.current?.state?.from || '/');
   };
 
   return (
