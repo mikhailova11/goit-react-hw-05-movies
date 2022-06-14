@@ -25,16 +25,15 @@ export function fetchSearchMovies(query) {
     return fetchWithErrorHandling(`${BASE_URL}search/movie?api_key=${KEY}&page=1&include_adult=false&query=${query}`)  
 }
 
-export function fetchGetMovieDetails(movieId) {
-    const id = movieId;
+export function fetchGetMovieDetails(id) {
     return fetchWithErrorHandling(`${BASE_URL}movie/${id}?api_key=${KEY}`);
   }
 
-export function fetchGetMovieCredits(movieId) {
-    return fetchWithErrorHandling(`${BASE_URL}movie/${movieId}/credits?api_key=${KEY}`) 
+export function fetchGetMovieCredits(id) {
+    return fetchWithErrorHandling(`${BASE_URL}movie/${id}/credits?api_key=${KEY}`) 
 }
 
-export function fetchGetMovieReviews(movieId) {
-    return fetchWithErrorHandling(`${BASE_URL}movie/${movieId}/reviews?api_key=${KEY}&page=1`) 
+export function fetchGetMovieReviews(id) {
+    return fetchWithErrorHandling(`${BASE_URL}movie/${id}/reviews?api_key=${KEY}&page=1`) 
 }
 
