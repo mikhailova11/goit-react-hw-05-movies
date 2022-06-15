@@ -26,7 +26,7 @@ const MovieDetailsPage = () => {
         await fetchGetMovieDetails(id).then(setMovieDetails);
       } catch (error) {
         setError(error)
-        console.dir(error)
+        console.alert(error.message)
       }
     }
     fetchDetails(id)

@@ -4,6 +4,9 @@ import { lazy, Suspense } from "react";
 import Container from "./components/Container";
 import Cast from './views/Cast';
 import Reviews from'./views/Reviews';
+import { FaSpinner } from 'react-icons/fa';
+
+
 
 const HomePageLazy = lazy(()=> import('./views/HomePage' /*webpackChunkName: "home-view" */));
 const MoviesPageLazy = lazy(()=> import('./views/MoviesPage' /*webpackChunkName: "movie-view" */));
@@ -15,12 +18,13 @@ const MovieDetailsPageLazy = lazy(()=> import('./views/MovieDetailsPage' /*webpa
 export const App = () => {
   return (
     <Container>
-      <Navigation/>
-      <Suspense fallback={<h1>Loading...</h1>}>
+       {  <FaSpinner/> && <Navigation/>}
+      <Suspense fallback={<FaSpinner/>}>
+     
         <Routes>
           <Route path="/" element={<HomePageLazy />} />
           <Route path="movies" element={<MoviesPageLazy />} />
-          <Route path="movies/:id" element={<MovieDetailsPageLazy />}>
+          <Route path="movies/:id" element={  <FaSpinner/> && <MovieDetailsPageLazy/>}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
