@@ -18,13 +18,22 @@ const MovieDetailsPageLazy = lazy(()=> import('./views/MovieDetailsPage' /*webpa
 export const App = () => {
   return (
     <Container>
-       {  <FaSpinner/> && <Navigation/>}
-      <Suspense fallback={<FaSpinner/>}>
+      <Navigation/>
+      <Suspense fallback={<div
+      style={{
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: 40,
+        color: '#010101'
+      }}
+    ><FaSpinner/></div>}>
      
         <Routes>
           <Route path="/" element={<HomePageLazy />} />
           <Route path="movies" element={<MoviesPageLazy />} />
-          <Route path="movies/:id" element={  <FaSpinner/> && <MovieDetailsPageLazy/>}>
+          <Route path="movies/:id" element={<MovieDetailsPageLazy/>}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
