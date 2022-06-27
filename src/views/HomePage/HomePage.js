@@ -13,7 +13,7 @@ const HomePages = () => {
 
         async function fetchFilms() {
         try {
-           await fetchPopularFilms().then().then(setFilm)
+           await fetchPopularFilms().then(setFilm)
         } catch (error) {
             console.log(error)
         } 
