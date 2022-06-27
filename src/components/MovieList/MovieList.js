@@ -1,17 +1,16 @@
 import Container from 'components/Container';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import s from './MoviesList.module.css';
 
 const MoviesList = ({response}) => {
-  const location = useNavigate();
- 
+
   return (
     <Container className={s.movieDetails}>
     <ul className={s.movieList}>
 
       {response.results.map(movie =>(
         <li key={movie.id} className={s.movieCard}>
-          <Link to={`/movies/${movie.id}`} state={{ from: location }} >
+          <Link to={`/movies/${movie.id}`}  >
             <img
               src={
                 movie.poster_path

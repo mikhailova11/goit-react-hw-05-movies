@@ -6,10 +6,20 @@ import {
   useNavigate,
 } from 'react-router-dom';
 import { IconContext } from 'react-icons';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { fetchGetMovieDetails } from '../../services/filmApi';
 import { GoReply } from 'react-icons/go';
 import Container from 'components/Container';
+import { FaSpinner } from 'react-icons/fa';
+
+const fallbackStyle = {
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 40,
+    color: '#010101'
+  }
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
@@ -86,7 +96,10 @@ const MovieDetailsPage = () => {
           </Link>
         </li>
       </ul>
-      <Outlet  />
+
+  <Suspense fallback={<div style={fallbackStyle}><FaSpinner /></div>}>
+  <Outlet/>
+</Suspense >
     </div>
         </Container>
     )
