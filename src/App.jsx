@@ -8,36 +8,36 @@ import { FaSpinner } from 'react-icons/fa';
 
 
 
-const HomePageLazy = lazy(()=> import('./views/HomePage' /*webpackChunkName: "home-view" */));
-const MoviesPageLazy = lazy(()=> import('./views/MoviesPage' /*webpackChunkName: "movie-view" */));
-const MovieDetailsPageLazy = lazy(()=> import('./views/MovieDetailsPage' /*webpackChunkName: "movie-details-view" */));
+const HomePageLazy = lazy(()=> import('./views/HomePage'));
+const MoviesPageLazy = lazy(()=> import('./views/MoviesPage'));
+const MovieDetailsPageLazy = lazy(()=> import('./views/MovieDetailsPage'));
+const CastPageLazy = lazy(()=> import('./views/Cast'));
+const ReviewsPageLazy = lazy(()=> import('./views/Reviews'));
 
 
-
+const fallbackStyle = {
+  height: '100vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontSize: 40,
+  color: '#010101'
+}
 
 export const App = () => {
   return (
     <Container>
+
       <Navigation/>
-      <Suspense fallback={<div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    ><FaSpinner/></div>}>
-     
+
+      <Suspense fallback={<div style={fallbackStyle}><FaSpinner/></div>}>
         <Routes>
           <Route path="/" element={<HomePageLazy />} />
           <Route path="movies" element={<MoviesPageLazy />} />
           <Route path="movies/:id" element={<MovieDetailsPageLazy/>}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
+            <Route path="cast" element={<CastPageLazy />} />
+            <Route path="reviews" element={<ReviewsPageLazy />} />
           </Route>
-          
           <Route path="*" element={<HomePageLazy />} />
         </Routes>
       </Suspense>

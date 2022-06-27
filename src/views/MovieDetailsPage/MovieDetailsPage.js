@@ -4,10 +4,9 @@ import {
   Link,
   Outlet,
   useNavigate,
-  useLocation,
 } from 'react-router-dom';
 import { IconContext } from 'react-icons';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchGetMovieDetails } from '../../services/filmApi';
 import { GoReply } from 'react-icons/go';
 import Container from 'components/Container';
@@ -15,9 +14,7 @@ import Container from 'components/Container';
 const MovieDetailsPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
   const [movieDetails, setMovieDetails] = useState(null);
-  const locationHistory = useRef(location);
   const [error, setError] = useState(null)
 
   useEffect(() => {
@@ -32,17 +29,13 @@ const MovieDetailsPage = () => {
     fetchDetails(id)
   }, [id, error]);
 
-  const onClickGoBackButon = () => {
-    navigate(locationHistory?.current?.state?.from || '/');
-  };
-
   return (
     movieDetails && (
       <Container className={s.movieDetails}>        
       <div className={s.buttonBox}>
       <button
         type="button"
-        onClick={onClickGoBackButon}
+        onClick={() => {navigate(-1)}}
         className={s.goBackButton}
       >
         <IconContext.Provider value={{ className: `${s.searchIcon}` }}>
@@ -83,7 +76,7 @@ const MovieDetailsPage = () => {
       <h3 className={s.additInfo}>Additional information</h3>
       <ul className={s.linkList}>
         <li>
-          <Link className={s.link} to="cast" location={location}>
+          <Link className={s.link} to="cast">
             Cast
           </Link>
         </li>
@@ -93,7 +86,7 @@ const MovieDetailsPage = () => {
           </Link>
         </li>
       </ul>
-      <Outlet location={location} />
+      <Outlet  />
     </div>
         </Container>
     )
