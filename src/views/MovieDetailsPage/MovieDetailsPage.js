@@ -67,9 +67,7 @@ const MovieDetailsPage = () => {
       </div>
       <div className={s.infoBox}>
         <h1 className={s.title}>{movieDetails.original_title} </h1>
-        <p className={s.userScore}>{`User Score: ${
-          movieDetails.vote_average * 10
-        }%`}</p>
+        <p className={s.userScore}>{`User Score: ${Math.floor(movieDetails.vote_average)}`}</p>
         <h2 className={s.overview}>Overview</h2>
         <p className={s.overviewDescription}>{movieDetails.overview}</p>
         <h3 className={s.genres}>Genres</h3>

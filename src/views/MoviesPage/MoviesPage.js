@@ -5,25 +5,27 @@ import { fetchSearchMovies } from "services/filmApi";
 import MoviesList from "components/MovieList";
 import { useSearchParams } from 'react-router-dom';
 
+
 const MoviesPage = () => {
     const [film, setFilm] = useState(null);
     const [query, setQuery] = useState('');
     const [searchParams, setSearchParams] = useSearchParams({});
     const queryValue = searchParams.get('query');
 
+  
 
     useEffect(() => {
         if (!queryValue) {
           return;
         }
-        fetchSearchMovies(queryValue).then(setFilm);
+        fetchSearchMovies(queryValue).then().then(setFilm);
       }, [queryValue]);
 
     useEffect(()=>{
         if( !query){
             return;
         }
-        fetchSearchMovies(query).then(setFilm)
+        fetchSearchMovies(query).then().then(setFilm)
     }, [query])
 
     const onQuerySubmit = e => {
@@ -44,7 +46,7 @@ const MoviesPage = () => {
                 type="text"
                 placeholder="Search..."
                 value={query}
-                onChange={(e) => setQuery(e.currentTarget.value)}
+                onChange={(e) => {setQuery(e.currentTarget.value)}}
             />
         
             </form>
